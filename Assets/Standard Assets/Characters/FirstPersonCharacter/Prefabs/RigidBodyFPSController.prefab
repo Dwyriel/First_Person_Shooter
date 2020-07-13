@@ -346,6 +346,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 2000000}
   range: 150
+  damage: 15
+  muzzleFlash: {fileID: 5963000324817920397}
 --- !u!1001 &529292309
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -429,6 +431,12 @@ GameObject:
 --- !u!4 &2337074158838356915 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2337074158996965286, guid: ada2587319194f542957a8c2ae277cb9,
+    type: 3}
+  m_PrefabInstance: {fileID: 529292309}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &5963000324817920397 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5963000324406115736, guid: ada2587319194f542957a8c2ae277cb9,
     type: 3}
   m_PrefabInstance: {fileID: 529292309}
   m_PrefabAsset: {fileID: 0}

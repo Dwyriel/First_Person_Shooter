@@ -6,9 +6,9 @@ public class Weapon : MonoBehaviour
 {
     [SerializeField] Camera cam;
     [SerializeField] float range = 150;
+    [SerializeField] float damage = 15f;
+    [SerializeField] ParticleSystem muzzleFlash;
 
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetButtonDown("Fire1"))
@@ -18,10 +18,21 @@ public class Weapon : MonoBehaviour
     }
     private void Shoot()
     {
+        muzzleFlash.Play(); //todo make it better
+        Raycasting();
+    }
+
+    private void Raycasting()
+    {
         RaycastHit rHit;
-        if(Physics.Raycast(cam.transform.position, cam.transform.forward, out rHit, range))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out rHit, range))
         {
-            print("Hit something: " + rHit.transform.name);
+            print("Hit something: " + rHit.transform.name); 
+            EnemyHealth target;
+            if ((target = rHit.transform.GetComponent<EnemyHealth>()) != null)
+            {
+                target.TakeDamage(damage);
+            }
         }
     }
 }
